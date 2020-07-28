@@ -26,7 +26,7 @@
     <?php
     if(isset($_POST["addmylist"])){
         include_once "api/api_addmovielist.php";
-        $_SESSION['success'] = "Você adicionou $movie_id->original_title na sua lista!";
+        $_SESSION['success'] = "Voce adicionou $movie_id->original_title na sua lista!";
 		  	header('location: mylist.php');
     }
     ?>
@@ -42,16 +42,16 @@
                 }
               ?>
           </p>
-          <p>Descrição : <?php echo $movie_id->overview ?></p>
+          <p>Descricao : <?php echo $movie_id->overview ?></p>
           <p>Data de lançamento : <?php $rel = date('d F Y', strtotime($movie_id->release_date)); echo $rel ?>
-          <p>Empresas de produção :
+          <p>Empresas de producao :
               <?php
                 foreach($movie_id->production_companies as $pc){
                   echo $pc->name." ";
                 }
               ?>
           </p>
-          <p>Países de produção :
+          <p>Paises de producao :
               <?php
                 foreach($movie_id->production_countries as $pco){
                   echo $pco->name. "&nbsp;&nbsp;" ;

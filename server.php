@@ -41,19 +41,19 @@
 		$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
 
 		// form validation: ensure that the form is correctly filled
-		if (empty($username)) { array_push($errors, "É preciso colocar um nome válido."); }
-		if (empty($email)) { array_push($errors, "É preciso colocar um email válido."); }
-		if (empty($password_1)) { array_push($errors, "É preciso colocar uma senha valida."); }
-		if (empty($birthday)) { array_push($errors, "É preciso colocar uma data de nascimento válida (ex: 1996-04-14)."); }
+		if (empty($username)) { array_push($errors, "Coloque um nome valido."); }
+		if (empty($email)) { array_push($errors, "Coloque um email valido."); }
+		if (empty($password_1)) { array_push($errors, "Coloque uma senha valida."); }
+		if (empty($birthday)) { array_push($errors, "Coloque uma data de nascimento valida. (ex: 1996-04-14)."); }
 
 		if ($password_1 != $password_2) {
-			array_push($errors, "As duas senhas são diferentes!");
+			array_push($errors, "As duas senhas sao diferentes!");
 		}
 		$query = "SELECT email FROM psjera_users WHERE email='$email'";
 		$result = mysqli_query($db, $query);
 
 		if(mysqli_num_rows($result) > 0){
-			array_push($errors, "Email já cadastrado!");
+			array_push($errors, "Email ja cadastrado!");
 		}
 
 		// register user if there are no errors in the form
@@ -71,7 +71,7 @@
 			$_SESSION['list_id'] = $list_id;
 
 			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "Você está logado $username!";
+			$_SESSION['success'] = "Voce esta logado $username!";
 			header('location: index.php');
 		}
 
@@ -83,10 +83,10 @@
 		$password = mysqli_real_escape_string($db, $_POST['password']);
 
 		if (empty($email)) {
-			array_push($errors, "É preciso um email válido.");
+			array_push($errors, "Digite um email valido.");
 		}
 		if (empty($password)) {
-			array_push($errors, "É preciso uma senha válida.");
+			array_push($errors, "Digite uma senha valida.");
 		}
 
 		if (count($errors) == 0) {
@@ -109,10 +109,10 @@
 				$_SESSION['list_id'] = $list_id;
 				$_SESSION['email'] = $email;
 				$_SESSION['username'] = $username;
-				$_SESSION['success'] = "Você está logado $username!";
+				$_SESSION['success'] = "Voce esta logado $username!";
 				header('location: index.php');
 			}else {
-				array_push($errors, "Email ou senha inválidos.");
+				array_push($errors, "Email ou senha invalidos.");
 			}
 		}
 	}

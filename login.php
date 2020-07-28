@@ -27,7 +27,7 @@
 			<button type="submit" class="btn" name="login_user">Entrar</button>
 		</div>
 		<p>
-			Ainda não é um membro? <a href="register.php">Cadastre-se já!</a>
+			Ainda nao e um membro? <a href="register.php">Cadastre-se ja!</a>
 		</p>
 	</form>
 

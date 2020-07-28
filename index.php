@@ -49,7 +49,7 @@
 	</ul>
 </div>
 
-<h1 style="color:white;">Próximos Filmes </h1>
+<h1 style="color:white;">Proximos Filmes </h1>
 <div class="row_posters">
     <ul class="row_poster">
       <?php

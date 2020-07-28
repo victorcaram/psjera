@@ -51,23 +51,3 @@
 				</h3>
 			</div>
 		<?php endif ?>
-<!--
-<div class="header">
-		<h2><a href="index.php" style="color: white;">Página principal</a></h2>
-	</div>
-	<div class="content">
-    <ul class="headerWelcome">
-    <li><a style="color: green;" name="email">Seja bem vindo <?php echo $_SESSION['username']?>!</a></li>
-    <li><a href="changeprofile.php" style="color: purple;">Mudar meu perfil</a></li>
-      <li><a href="mylist.php" style="color: green;">Minha Lista</a></li>
-      <li><a href="index.php?logout='1'" style="color: red;">Logout</a></li>
-    </ul>
-	</div>
-	<div>
-	<form action="search.php" method="get">
-      <input type="text" name="search" placeholder="Digite um filme" required>
-
-      <button type="submit" style="color: black;">Procurar! </button>
-    </form>
-  </div>
--->

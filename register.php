@@ -36,7 +36,7 @@
 			<button type="submit" class="btn" name="reg_user">Registrar</button>
 		</div>
 		<p>
-			Já possui uma conta? <a href="login.php">Entrar!</a>
+			Ja possui uma conta? <a href="login.php">Entrar!</a>
 		</p>
 	</form>
 </body>
