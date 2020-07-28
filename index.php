@@ -16,20 +16,6 @@
 	}
 	include_once "header.php";
 ?>
-<!-- notification message -->
-<?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
-					<?php 
-						echo $_SESSION['success'];
-						//$pieces = explode(' ', $_SESSION['success']);
-						//$email = array_pop($pieces);
-						//echo "<h1>".$email."</h1>";
-						unset($_SESSION['success']);
-					?>
-				</h3>
-			</div>
-		<?php endif ?>
 
 <h1 style="color:white;">Populares no momento </h1>
 <div class="row_posters">

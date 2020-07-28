@@ -20,11 +20,14 @@
     ?>
 
 <form class="newForm" method="post">
-    <a href="mylist.php"><button type="addmylist" class="w3-button w3-green" name="addmylist" href="mylist.php" style="height: 30px; padding:5px">Adicionar a minha lista</button></a>
+  
+    <a href="mylist.php"><button href="mylist.php" type="addmylist" class="w3-button w3-green" name="addmylist" style="height: 30px; padding:5px">Adicionar a minha lista</button></a>
     </form>
     <?php
     if(isset($_POST["addmylist"])){
         include_once "api/api_addmovielist.php";
+        $_SESSION['success'] = "Você adicionou $movie_id->original_title na sua lista!";
+		  	header('location: mylist.php');
     }
     ?>
 

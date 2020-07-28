@@ -17,7 +17,7 @@
 
 		<div class="input-group">
 			<label>Email</label>
-			<input type="text" name="email" style="color:black" >
+			<input type="email" name="email" style="color:black" >
 		</div>
 		<div class="input-group">
 			<label>Senha</label>

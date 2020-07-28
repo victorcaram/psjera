@@ -11,9 +11,9 @@
 	$_SESSION['list_id'] = "";
 
 	// connect to database
-	$db = mysqli_connect('localhost', 'root', '', 'psjera');
+	$db = mysqli_connect('mysql.dcc.ufmg.br', 'victor.caram', '1234zaq', 'victorcaram');
 
-	$query = "CREATE TABLE IF NOT EXISTS `users` (
+	$query = "CREATE TABLE IF NOT EXISTS `psjera_users` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`email` varchar(255) DEFAULT NULL,
 	`password` varchar(255) DEFAULT NULL,
@@ -24,7 +24,7 @@
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	mysqli_query($db, $query);
 
-	$query = "CREATE TABLE IF NOT EXISTS `lists` (
+	$query = "CREATE TABLE IF NOT EXISTS `psjera_lists` (
 		`email` varchar(255) DEFAULT NULL,
 		`profile` varchar(255) DEFAULT NULL,
 		`list_id` varchar(255) DEFAULT NULL
@@ -49,7 +49,7 @@
 		if ($password_1 != $password_2) {
 			array_push($errors, "As duas senhas são diferentes!");
 		}
-		$query = "SELECT email FROM users WHERE email='$email'";
+		$query = "SELECT email FROM psjera_users WHERE email='$email'";
 		$result = mysqli_query($db, $query);
 
 		if(mysqli_num_rows($result) > 0){
@@ -59,13 +59,13 @@
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (email, password, name, birthday)
+			$query = "INSERT INTO psjera_users (email, password, name, birthday)
 			 VALUES ('$email', '$password', '$username', '$birthday');";
 			mysqli_query($db, $query);
 
 			include_once "api/api_createlist.php";
 			$list_id = $createlist->list_id;
-			$query = "INSERT INTO lists (email, profile, list_id)
+			$query = "INSERT INTO psjera_lists (email, profile, list_id)
 			 VALUES ('$email', '$username', '$list_id');";
 			mysqli_query($db, $query);
 			$_SESSION['list_id'] = $list_id;
@@ -91,7 +91,7 @@
 
 		if (count($errors) == 0) {
 			$password = md5($password);
-			$query = "SELECT email, password, name FROM users WHERE email='$email' AND password='$password'";
+			$query = "SELECT email, password, name FROM psjera_users WHERE email='$email' AND password='$password'";
 			$results = mysqli_query($db, $query);
 
 			if (mysqli_num_rows($results) == 1) {
@@ -99,7 +99,7 @@
 					$username = $row["name"];
 				}
 
-				$query = "SELECT list_id FROM lists WHERE email='$email' AND profile='$username'";
+				$query = "SELECT list_id FROM psjera_lists WHERE email='$email' AND profile='$username'";
 				$result_list = mysqli_query($db, $query);
 
 				while($row = $result_list->fetch_assoc()) {
