@@ -9,28 +9,28 @@
 	<div class="header">
 		<h2>Cadastre-se!</h2>
 	</div>
-	<form method="post" action="register.php">
+	<form class="registerForm" method="post" action="register.php">
 		<?php include('errors.php'); ?>
 
 		<div class="input-group">
 			<label>Nome</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
+			<input type="text" name="username" value="<?php echo $username; ?>" style="color:black">
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" name="email" value="<?php echo $email; ?>" style="color:black">
 		</div>
 		<div class="input-group">
 			<label>Senha</label>
-			<input type="password" name="password_1">
+			<input type="password" name="password_1" style="color:black">
 		</div>
 		<div class="input-group">
 			<label>Confirme a sua senha</label>
-			<input type="password" name="password_2">
+			<input type="password" name="password_2" style="color:black">
 		</div>
 		<div class="input-group">
 			<label>Data de Nascimento</label>
-			<input type="birthday" name="birthday" value="<?php echo $birthday; ?>">
+			<input type="birthday" name="birthday" value="<?php echo $birthday; ?>" style="color:black">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="reg_user">Registrar</button>

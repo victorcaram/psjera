@@ -1,19 +1,19 @@
 <?php
 session_start();
 $input=$_GET['search'];
-$channel=$_GET['channel'];
+//$channel=$_GET['channel'];
 $search=$input;
 include_once "conf/info.php";
-$title = 'Result Search | '.$input;
+$title = 'Resultado da Busca | '.$input;
 include_once "header.php";
 include_once "api/api_search.php";
 
 ?>
-    <h3>Result Search: <em><?php echo $input?></em></h3>
+    <h3>Resultado da Busca: <em><?php echo $input?></em></h3>
     <hr>
-    <ul>
+    <div class="row_posters">
+    <ul class="row_poster">
 <?php
-	if($channel=="movie"){	
         foreach($search->results as $results){
 			$title 		= $results->title;
 			$id 		= $results->id;
@@ -33,9 +33,9 @@ include_once "api/api_search.php";
 			}
 			echo '<li><a href="movie.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
 		}
-    }
 ?>
-    </ul>
+	</ul>
+	</div>
  <?php
 include_once('footer.php');
 ?>

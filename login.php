@@ -11,17 +11,17 @@
 		<h2>Login</h2>
 	</div>
 	
-	<form method="post" action="login.php">
+	<form class="registerForm" method="post" action="login.php">
 
 		<?php include('errors.php'); ?>
 
 		<div class="input-group">
 			<label>Email</label>
-			<input type="text" name="email" >
+			<input type="text" name="email" style="color:black" >
 		</div>
 		<div class="input-group">
 			<label>Senha</label>
-			<input type="password" name="password">
+			<input type="password" name="password" style="color:black">
 		</div>
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_user">Entrar</button>

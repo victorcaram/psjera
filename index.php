@@ -31,23 +31,53 @@
 			</div>
 		<?php endif ?>
 
-<h1>Melhores filmes </h1>
-	<hr>
-	<div id="div_toprateds">
-    <ul id="ul_toprateds">
+<h1 style="color:white;">Populares no momento </h1>
+<div class="row_posters">
+    <ul class="row_poster">
+      <?php
+        include_once "api/api_popularmovies.php";
+        foreach($popular->results as $p){
+			echo '<li style="margin-right:10px">
+			<a href="movie.php?id=' . $p->id . '">
+			<img style="max-height:200px;" src="http://image.tmdb.org/t/p/w300'. $p->poster_path . '">
+			</a>
+			</li>';
+		}
+      ?>
+	</ul>
+</div>
+
+<h1 style="color:white;">Melhores filmes </h1>
+<div class="row_posters">
+    <ul class="row_poster">
       <?php
         include_once "api/api_toprated.php";
         foreach($toprated->results as $p){
-		  echo '<li>
+		  echo '<li style="margin-right:10px">
 		  <a href="movie.php?id=' . $p->id . '">
-		  <img src="http://image.tmdb.org/t/p/w300'. $p->poster_path . '">
-		  <h4>' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h4>
-		  <h5><em>Rate : " . $p->vote_average . " |  Vote : " . $p->vote_count . "</em></h5></a>
-		  </li>";
+		  <img style="max-height:200px;" src="http://image.tmdb.org/t/p/w300'. $p->poster_path . '">
+		  </a>
+		  </li>';
         }
       ?>
 	</ul>
-	</div>
+</div>
+
+<h1 style="color:white;">Próximos Filmes </h1>
+<div class="row_posters">
+    <ul class="row_poster">
+      <?php
+        include_once "api/api_upcoming.php";
+        foreach($upcoming->results as $p){
+			echo '<li style="margin-right:10px">
+			<a href="movie.php?id=' . $p->id . '">
+			<img style="max-height:200px;" src="http://image.tmdb.org/t/p/w300'. $p->poster_path . '">
+			</a>
+			</li>';
+		}
+      ?>
+	</ul>
+</div>
 		
 <?php
   include_once "footer.php";

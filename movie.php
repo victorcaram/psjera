@@ -10,15 +10,6 @@
   
 ?>
 
-    <form method="post">
-    <button type="addmylist" name="addmylist" href="mylist.php">Add minha lista </button>
-    </form>
-    <?php
-    if(isset($_POST["addmylist"])){
-        include_once "api/api_addmovielist.php";
-    }
-    ?>
-
     <?php 
     if(isset($_GET['id'])){
     $id_movie = $_GET['id']; 
@@ -26,6 +17,15 @@
     <h1><?php echo $movie_id->original_title ?></h1>
     <?php
       echo "<h5>".$movie_id->tagline."</h5>";
+    ?>
+
+<form class="newForm" method="post">
+    <a href="mylist.php"><button type="addmylist" class="w3-button w3-green" name="addmylist" href="mylist.php" style="height: 30px; padding:5px">Adicionar a minha lista</button></a>
+    </form>
+    <?php
+    if(isset($_POST["addmylist"])){
+        include_once "api/api_addmovielist.php";
+    }
     ?>
 
     <hr>
@@ -61,12 +61,13 @@
 
     <hr>
     <h3>Filmes similares</h3>
-      <ul>
+    <div class="row_posters">
+    <ul class="row_poster">
       <?php
         $count = 4;
         $output=""; 
         foreach($movie_similar_id->results as $sim){
-          $output.='<li><a href="movie.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'"><h5>'.$sim->title.'</h5></a></li>';
+          $output.='<li><a href="movie.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'"></a><h4>'.$sim->title.'</h4></li>';
           if($count <=0){
             break;
             $count--;
@@ -75,6 +76,7 @@
         echo $output;
       ?>
       </ul>
+      </div>
 
 <?php
 }
