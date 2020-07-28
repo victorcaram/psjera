@@ -2,6 +2,17 @@
   include "conf/info.php";
   session_start();
   include_once "header.php";
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
   
   $id_movie = $_GET['id'];
     include_once "api/api_movie_id.php";
